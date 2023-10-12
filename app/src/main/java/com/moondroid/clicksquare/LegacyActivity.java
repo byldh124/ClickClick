@@ -1,30 +1,26 @@
-package com.moondroid.clickclick;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+package com.moondroid.clicksquare;
 
 import android.content.DialogInterface;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity {
+public class LegacyActivity extends AppCompatActivity {
 
     ImageView btnStart;
 
-    TextView textView_stage,textView_num,timer;
+    TextView textView_stage, textView_num, timer;
 
     ImageView[][] stageBtns = new ImageView[7][];
 
@@ -38,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
     int stage = 0;
     int num = 1;
     int btnSum;
-    int[] plz = new int[]{0,1,5,14,30,55,91};
+    int[] plz = new int[]{0, 1, 5, 14, 30, 55, 91};
     long myBaseTime;
     long myPauseTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_legacy);
 
         btnStart = findViewById(R.id.btnStart);
 
@@ -54,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         stage00 = findViewById(R.id.stage00);
         textView_stage = findViewById(R.id.textView_Stage);
         textView_num = findViewById(R.id.textView_num);
-        for (int i=0; i<stages.length; i++){
-            stages[i] = findViewById(R.id.stage01+i);
+        for (int i = 0; i < stages.length; i++) {
+            stages[i] = findViewById(R.id.stage01 + i);
         }
 
 
@@ -71,18 +67,15 @@ public class MainActivity extends AppCompatActivity {
                 stageBtns[stage][0].setImageResource(R.drawable.number_01);
                 stageBtns[stage][0].setTag(R.drawable.number_01);
                 textView_stage.setVisibility(View.VISIBLE);
-                textView_stage.setText("stage"+(stage+1));
+                textView_stage.setText("stage" + (stage + 1));
                 textView_num.setVisibility(View.VISIBLE);
                 timer.setVisibility(View.VISIBLE);
-                textView_num.setText(num+"");
+                textView_num.setText(num + "");
 
                 myBaseTime = SystemClock.elapsedRealtime();
                 System.out.println(myBaseTime);
                 myTimer.sendEmptyMessage(0);
                 reset.setVisibility(View.VISIBLE);
-
-
-
             }
         });
     }
@@ -98,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         if (check == num && check != (stage + 1) * (stage + 1)) {
             iv.setVisibility(View.INVISIBLE);
             num++;
-            textView_num.setText(num+"");
+            textView_num.setText(num + "");
         }
 
 
@@ -126,8 +119,8 @@ public class MainActivity extends AppCompatActivity {
                     stageBtns[stage][i].setTag(R.drawable.number_01 + list.get(i));
                 }
                 num = 1;
-                textView_stage.setText("stage"+(stage+1));
-                textView_num.setText(num+"");
+                textView_stage.setText("stage" + (stage + 1));
+                textView_num.setText(num + "");
 
             } catch (Exception e) {
 
@@ -135,9 +128,9 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        if (stage >= 5 && check == (stage + 1) * (stage + 1) && check == num){
+        if (stage >= 5 && check == (stage + 1) * (stage + 1) && check == num) {
 
-            for (int i = 0 ; i<stages.length ; i++){
+            for (int i = 0; i < stages.length; i++) {
                 stages[i].setVisibility(View.GONE);
             }
 
@@ -155,16 +148,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void clickFinish(View v){
-        for (int i = 0 ; i<stages.length ; i++){
+    public void clickFinish(View v) {
+        for (int i = 0; i < stages.length; i++) {
             stages[i].setVisibility(View.GONE);
         }
 
         stage00.setVisibility(View.VISIBLE);
         textView_stage.setVisibility(View.GONE);
 
-        for (int i = 0 ; i <stageBtns.length-1; i++){
-            for (int j = 0 ; j <stageBtns[i].length; j++){
+        for (int i = 0; i < stageBtns.length - 1; i++) {
+            for (int j = 0; j < stageBtns[i].length; j++) {
                 stageBtns[i][j].setVisibility(View.VISIBLE);
             }
         }
@@ -178,8 +171,8 @@ public class MainActivity extends AppCompatActivity {
         timer.setVisibility(View.INVISIBLE);
     }
 
-    Handler myTimer = new Handler(){
-        public void handleMessage(android.os.Message msg){
+    Handler myTimer = new Handler() {
+        public void handleMessage(android.os.Message msg) {
             timer.setText(getTimeOut());
 
             myTimer.sendEmptyMessage(0);
@@ -187,14 +180,14 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-    public String getTimeOut(){
+    public String getTimeOut() {
         long now = SystemClock.elapsedRealtime();
         long outTime = now - myBaseTime;
-        String easy_outTime = String.format("%02d:%02d:%02d", outTime/1000/60, (outTime/1000)%60, (outTime%1000)/10);
+        String easy_outTime = String.format("%02d:%02d:%02d", outTime / 1000 / 60, (outTime / 1000) % 60, (outTime % 1000) / 10);
         return easy_outTime;
     }
 
-    public void clickBtn(View view){
+    public void clickBtn(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("처음으로 돌아갈까요?");
         myTimer.removeMessages(0);
@@ -203,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                for (int i = 0 ; i<stages.length ; i++){
+                for (int i = 0; i < stages.length; i++) {
                     stages[i].setVisibility(View.GONE);
                 }
 
@@ -211,8 +204,8 @@ public class MainActivity extends AppCompatActivity {
                 textView_stage.setVisibility(View.GONE);
                 textView_num.setVisibility(View.INVISIBLE);
 
-                for (int i = 0 ; i <stage; i++){
-                    for (int j = 0 ; j <stageBtns[i].length; j++){
+                for (int i = 0; i < stage; i++) {
+                    for (int j = 0; j < stageBtns[i].length; j++) {
                         stageBtns[i][j].setVisibility(View.VISIBLE);
                     }
                 }
@@ -229,11 +222,11 @@ public class MainActivity extends AppCompatActivity {
         builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                textView_num.setText(num+"");
+                textView_num.setText(num + "");
 
                 long now = SystemClock.elapsedRealtime();
                 myTimer.sendEmptyMessage(0);
-                myBaseTime += (now- myPauseTime);
+                myBaseTime += (now - myPauseTime);
             }
         });
 
