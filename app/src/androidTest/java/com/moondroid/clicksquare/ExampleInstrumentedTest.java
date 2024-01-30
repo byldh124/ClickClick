@@ -1,4 +1,4 @@
-package com.moondroid.clicksquare;
+package com.moondroid.clickclick;
 
 import android.content.Context;
 

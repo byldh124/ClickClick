@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.moondroid.clicksquare"
-    compileSdk = 33
+    namespace = "com.moondroid.clickclick"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.moondroid.clicksquare"
+        applicationId = "com.moondroid.clickclick"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 2
         versionName = "1.0.2"
 

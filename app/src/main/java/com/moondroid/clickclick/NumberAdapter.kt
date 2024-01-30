@@ -1,12 +1,11 @@
-package com.moondroid.clicksquare
+package com.moondroid.clickclick
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
-import com.moondroid.clicksquare.databinding.ItemNumberBinding
+import com.moondroid.clickclick.databinding.ItemNumberBinding
 import kotlin.properties.Delegates
 
 @SuppressLint("NotifyDataSetChanged")
