@@ -8,7 +8,7 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.moondroid.clicksquare" />
+                  <option name="appId" value="com.moondroid.clickclick" />
                 </ConnectionSetting>
               </option>
               <option name="failureTypes">

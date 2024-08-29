@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.moondroid.clickclick"
+    namespace = "com.moondroid.clicksquare"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.moondroid.clickclick"
+        applicationId = "com.moondroid.clicksquare"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.0.2"
+        versionCode = 5
+        versionName = "1.0.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

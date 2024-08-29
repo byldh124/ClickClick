@@ -1,4 +1,4 @@
-package com.moondroid.clickclick;
+package com.moondroid.clicksquare;
 
 import org.junit.Test;
 

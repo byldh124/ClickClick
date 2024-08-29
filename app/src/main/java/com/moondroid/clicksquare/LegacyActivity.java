@@ -1,4 +1,4 @@
-package com.moondroid.clickclick;
+package com.moondroid.clicksquare;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.moondroid.clickclick.R;
+import com.moondroid.clicksquare.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

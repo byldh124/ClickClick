@@ -1,4 +1,4 @@
-package com.moondroid.clickclick
+package com.moondroid.clicksquare
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,7 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.moondroid.clickclick.databinding.ActivityMainBinding
+import com.moondroid.clicksquare.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
